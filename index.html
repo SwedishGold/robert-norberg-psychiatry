@@ -308,6 +308,37 @@
             font-size: 0.95rem;
         }
         
+        /* Specialties Section */
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+        
+        .specialty-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .specialty-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .specialty-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        
+        .specialty-card p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
         /* Booking Form */
         .booking-section {
             background: var(--bg-card);
@@ -534,6 +565,7 @@
             <button class="tab-btn active" data-tab="om">Om mig</button>
             <button class="tab-btn" data-tab="metoder">Behandlingsmetoder</button>
             <button class="tab-btn" data-tab="tjanster">Tjänster</button>
+            <button class="tab-btn" data-tab="specialiteter">Specialiteter</button>
             <button class="tab-btn" data-tab="kontakt">Kontakt</button>
         </div>
     </nav>
@@ -615,33 +647,73 @@
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Individuell Terapi</h3>
-                    <p>Personanpassad behandling anpassad efter dina specifika behov. Vi arbetar tillsammans för att identifiera mål och utveckla strategier för förändring. Behandlingen kan omfatta en eller flera av mina terapimetoder beroende på vad som passar dig bäst.</p>
+                    <p>Personanpassad behandling anpassad efter dina specifika behov. Vi arbetar tillsammans för att identifiera mål och utveckla strategier för förändring.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Psykiatrisk Utredning</h3>
-                    <p>Strukturerad utredning och diagnostik av psykiatriska tillstånd. Jag använder evidensbaserade instrument och metoder för att ge dig en tydlig bild av dina svårigheter och föreslå lämplig behandling.</p>
+                    <p>Strukturerad utredning och diagnostik av psykiatriska tillstånd med evidensbaserade instrument och metoder.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Gruppsbehandling</h3>
-                    <p>Strukturerade gruppprogram, särskilt inom DBT och KBT. Gruppbehandling kan vara särskilt värdefullt då det ger möjlighet att lära av andra i liknande situationer och öva på färdigheter i en trygg miljö.</p>
+                    <p>Strukturerade gruppprogram inom DBT och KBT. Möjlighet att lära av andra i liknande situationer och öva på färdigheter.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>ATK - Anteckningar och Rådgivning</h3>
-                    <p>Telefon- och videobaserad rådgivning för dig som redan är i behandling. Jag erbjuder även konsultation till närstående och andra vårdgivare som vill förstå mer om psykiatrisk problematik.</p>
+                    <p>Telefon- och videobaserad rådgivning för dig som redan är i behandling. Konsultation till närstående och vårdgivare.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Föreläsningar och Utbildning</h3>
-                    <p>Jag håller föreläsningar och utbildningar för organisationer och team inom psykiatrisk vård, arbetsmiljö och stresshantering. Skräddarsydda utbildningspaket för din verksamhets behov.</p>
+                    <p>Utbildningar för organisationer inom bemötande, arbetsmiljö och stresshantering. Skräddarsydda utbildningspaket.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Återhämtning och Stöd</h3>
-                    <p>Långsiktigt stöd för återhämtning och psykisk wellness. Jag hjälper dig att bygga upp strategier och resurser för att hantera vardagen och förebygga återfall.</p>
+                    <p>Långsiktigt stöd för återhämtning och psykisk wellness. Strategier och resurser för att hantera vardagen.</p>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Specialiteter -->
+        <div id="specialiteter" class="tab-content">
+            <h2 style="color: var(--primary); margin-bottom: 20px; font-size: 2rem;">Mina specialiteter</h2>
+            <p style="color: var(--text-medium); max-width: 700px;">Med över fyra års erfarenhet inom psykiatrisk vård har jag utvecklat specialkompetenser inom utmanande områden:</p>
+            
+            <div class="specialty-grid">
+                <div class="specialty-card">
+                    <h4>Aggressionshantering</h4>
+                    <p>Specialistkompetens inom bemötande och hantering av aggressiva utåtagerande personer. Erfarenhet från både öppen och slutenvård.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <h4>Självskadebeteende</h4>
+                    <p>Djup kompetens inom bemötande och behandling av personer med självskadebeteenden. Kvalificerat stöd och behandling.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <h4>Känsloreglering</h4>
+                    <p>Expertis i att hjälpa patienter att förstå och reglera sina känslor. Kopplat till DBT-metodiken.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <h4>Handledning</h4>
+                    <p>Ger handledning till personal inom slutenvård och DBT-team. Stödjer kollegor i deras professionella utveckling.</p>
+                </div>
+            </div>
+            
+            <div class="method-card" style="margin-top: 40px;">
+                <h3>Utbildningsverksamhet</h3>
+                <p class="subtitle">Hola Utbildningscenter</p>
+                <p>Jag föreläser regelbundet på Hola Utbildningscenter där jag håller utbildningar inom:</p>
+                <ul>
+                    <li><strong>Bemötandeutbildningar</strong> - För vård- och omsorgspersonal</li>
+                    <li><strong>Aggressionshantering</strong> - Praktiska verktyg och strategier</li>
+                    <li><strong>Självskadebeteende</strong> - Förståelse och bemötande</li>
+                    <li><strong>Känsloreglering</strong> - Teoretisk och praktisk grund</li>
+                </ul>
             </div>
         </div>
         
@@ -712,7 +784,7 @@
                                     <option value="">Välj tjänst</option>
                                     <option value="individuell">Individuell terapi</option>
                                     <option value="utredning">Psykiatrisk utredning</option>
-                                    <option value="grupp">Gruppsbehandling</option>
+                                    <option value="handledning">Handledning</option>
                                     <option value="forelasning">Föreläsning/Utbildning</option>
                                     <option value="konsultation">Allmän konsultation</option>
                                 </select>
