@@ -78,19 +78,16 @@
             width: 160px;
             height: 160px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
             flex-shrink: 0;
             border: 4px solid rgba(255,255,255,0.3);
-            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
         
-        .profile-image svg {
-            width: 100px;
-            height: 100px;
-            fill: rgba(255,255,255,0.8);
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .header-info h1 {
@@ -504,9 +501,7 @@
     <header>
         <div class="container header-content">
             <div class="profile-image">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
+                <img src="robert-profile.jpg" alt="Robert Johan Gustav Norberg">
             </div>
             <div class="header-info">
                 <h1>Robert Johan Gustav Norberg</h1>
@@ -538,7 +533,7 @@
         <div class="container nav-tabs-inner">
             <button class="tab-btn active" data-tab="om">Om mig</button>
             <button class="tab-btn" data-tab="metoder">Behandlingsmetoder</button>
-            <button class="tab-btn" data-tab="tjanster">Tjanster</button>
+            <button class="tab-btn" data-tab="tjanster">Tjänster</button>
             <button class="tab-btn" data-tab="kontakt">Kontakt</button>
         </div>
     </nav>
@@ -549,15 +544,15 @@
             <div class="about-grid">
                 <div class="about-card">
                     <h3>Min bakgrund</h3>
-                    <p>Jag arbetar som legitimerad psykoterapeut och behandlare inom Region Västernorrland med over fyra ars erfarenhet av psykiatrisk vard.</p>
-                    <p>Min specialistkompetens ligger inom evidensbaserade behandlingsmetoder, och jag har genomgatt extensive utbildning inom flera terapeutiska inriktningar.</p>
-                    <p>Jag tror starkt pa att varje individ ar unik och att behandlingen maste anpassas efter dina specifika behov och mål.</p>
+                    <p>Jag arbetar som legitimerad psykoterapeut och behandlare inom Region Västernorrland med över fyra års erfarenhet av psykiatrisk vård.</p>
+                    <p>Min specialistkompetens ligger inom evidensbaserade behandlingsmetoder, och jag har genomgått extensiv utbildning inom flera terapeutiska inriktningar.</p>
+                    <p>Jag tror starkt på att varje individ är unik och att behandlingen måste anpassas efter dina specifika behov och mål.</p>
                 </div>
                 <div class="about-card">
                     <h3>Min filosofi</h3>
-                    <p>Terapi handlar inte bara om att minska symtom - det handlar om att hitta nya satt att leva ett meningsfullt liv.</p>
-                    <p>Jag kombinerar vetenskapligt beprövade metoder med ett varmt och inkännande förhallningssatt. Tillsammans skapar vi en trygg grund dar du kan utforska dina tankar, känslor och beteenden.</p>
-                    <p>Min roll ar att stötta dig i din process, inte att döma eller ge enkla svar. Du ar experten på ditt eget liv.</p>
+                    <p>Terapi handlar inte bara om att minska symtom - det handlar om att hitta nya sätt att leva ett meningsfullt liv.</p>
+                    <p>Jag kombinerar vetenskapligt beprövade metoder med ett varmt och inkännande förhållningssätt. Tillsammans skapar vi en trygg grund där du kan utforska dina tankar, känslor och beteenden.</p>
+                    <p>Min roll är att stötta dig i din process, inte att döma eller ge enkla svar. Du är experten på ditt eget liv.</p>
                 </div>
             </div>
         </div>
@@ -565,20 +560,20 @@
         <!-- Metoder -->
         <div id="metoder" class="tab-content">
             <div class="method-card">
-                <h3>KBT - Kognitiv BetendeTerapi</h3>
+                <h3>KBT - Kognitiv BeteendeTerapi</h3>
                 <p class="subtitle">Kognitiv BeteendeTerapi</p>
-                <p>KBT ar en av de mest studerade och effektiva terapiformerna for olika psykiska besvar. Metoden fokuserar pa sambandet mellan tankar, känslor och beteenden.</p>
+                <p>KBT är en av de mest studerade och effektiva terapiformerna för olika psykiska besvär. Metoden fokuserar på sambandet mellan tankar, känslor och beteenden.</p>
                 <ul>
                     <li>Identifiera och utmana negativa tankemönster</li>
-                    <li>Utveckla nya, mer hjälpsamma satt att tänka</li>
-                    <li>Gradvis exponering for rädslor och ångest</li>
+                    <li>Utveckla nya, mer hjälpsamma sätt att tänka</li>
+                    <li>Gradvis exponering för rädslor och ångest</li>
                     <li>Praktiska verktyg för vardagen</li>
                     <li>Strukturerad och tidsbegränsad behandling</li>
                 </ul>
             </div>
             
             <div class="method-card">
-                <h3>DBT - Dialektisk BetendeTerapi</h3>
+                <h3>DBT - Dialektisk BeteendeTerapi</h3>
                 <p class="subtitle">Dialektisk BeteendeTerapi</p>
                 <p>DBT är en modifierad form av KBT som utvecklats specifikt för att behandla borderline personlighetsstörning och intensiv emotionell dysreglering.</p>
                 <ul>
@@ -629,7 +624,7 @@
                 </div>
                 
                 <div class="service-card">
-                    <h3>Grupphbehandling</h3>
+                    <h3>Gruppsbehandling</h3>
                     <p>Strukturerade gruppprogram, särskilt inom DBT och KBT. Gruppbehandling kan vara särskilt värdefullt då det ger möjlighet att lära av andra i liknande situationer och öva på färdigheter i en trygg miljö.</p>
                 </div>
                 
@@ -692,9 +687,9 @@
                 
                 <div class="booking-section">
                     <h2>Beställ en konsultation</h2>
-                    <p class="subtitle">Fyll i formularet så kontaktar jag dig inom 24 timmar</p>
+                    <p class="subtitle">Fyll i formuläret så kontaktar jag dig inom 24 timmar</p>
                     
-                    <form id="booking-form" action="mailto:robert-no@hotmail.com?subject=Bokningsforeskraring" method="POST" enctype="text/plain">
+                    <form id="booking-form" action="mailto:robert-no@hotmail.com?subject=Bokningsförfrågan" method="POST" enctype="text/plain">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Namn</label>
@@ -717,7 +712,7 @@
                                     <option value="">Välj tjänst</option>
                                     <option value="individuell">Individuell terapi</option>
                                     <option value="utredning">Psykiatrisk utredning</option>
-                                    <option value="grupp">Grupphbehandling</option>
+                                    <option value="grupp">Gruppsbehandling</option>
                                     <option value="forelasning">Föreläsning/Utbildning</option>
                                     <option value="konsultation">Allmän konsultation</option>
                                 </select>
@@ -729,7 +724,7 @@
                             <textarea id="message" name="message" rows="4" placeholder="Beskriv kort ditt ärende eller dina frågor..."></textarea>
                         </div>
                         
-                        <button type="submit" class="submit-btn">Skicka bokningsforeskraring</button>
+                        <button type="submit" class="submit-btn">Skicka bokningsförfrågan</button>
                     </form>
                 </div>
             </div>
@@ -759,12 +754,6 @@
                 btn.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
             });
-        });
-        
-        // Form submission - opens email client
-        document.getElementById('booking-form').addEventListener('submit', function(e) {
-            // Allow default mailto action
-            // Could also add AJAX submission here
         });
     </script>
 </body>
