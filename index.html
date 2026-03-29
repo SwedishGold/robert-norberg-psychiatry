@@ -3,358 +3,769 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert Johan Gustav Norberg | KBT DBT IPT ERGT Terapeut</title>
+    <title>Robert Johan Gustav Norberg | Psykoterapeut KBT DBT IPT ERGT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #38a169;
+            --accent-light: #48bb78;
+            --bg-light: #f7fafc;
+            --bg-card: #ffffff;
+            --text-dark: #1a202c;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.7;
-            color: #333;
-            background: linear-gradient(180deg, #e8f4f8 0%, #f5f9fc 50%, #ffffff 100%);
-            min-height: 100vh;
+            color: var(--text-dark);
+            background: var(--bg-light);
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 24px;
         }
         
+        /* Header */
         header {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 0 0 24px 24px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(102, 178, 204, 0.15);
-            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .profile-icon {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #66b2cc 0%, #4a90a4 100%);
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 1;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
+            flex-shrink: 0;
+            border: 4px solid rgba(255,255,255,0.3);
+            overflow: hidden;
         }
         
-        h1 {
-            font-size: 2.2rem;
-            color: #2c4a52;
+        .profile-image svg {
+            width: 100px;
+            height: 100px;
+            fill: rgba(255,255,255,0.8);
+        }
+        
+        .header-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 8px;
-            font-weight: 600;
         }
         
-        .title {
-            font-size: 1.2rem;
-            color: #66b2cc;
-            margin-bottom: 8px;
-            font-weight: 500;
+        .header-info .title {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 16px;
         }
         
-        .location {
-            font-size: 1rem;
-            color: #6b8a94;
-            margin-bottom: 20px;
+        .header-info .location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.8;
+            font-size: 0.95rem;
         }
         
         .credentials {
             display: flex;
-            justify-content: center;
             gap: 12px;
             flex-wrap: wrap;
-            margin-top: 15px;
+            margin-top: 20px;
         }
         
         .credential {
-            background: linear-gradient(135deg, #66b2cc 0%, #4a90a4 100%);
-            color: white;
+            background: rgba(255,255,255,0.15);
             padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
+            backdrop-filter: blur(4px);
         }
         
-        .intro {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            margin-bottom: 30px;
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0077b5;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: all 0.3s ease;
         }
         
-        .intro h2 {
-            color: #2c4a52;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+        .linkedin-btn:hover {
+            background: #006097;
+            transform: translateY(-2px);
         }
         
-        .intro p {
-            color: #5a6e73;
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.05rem;
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
         }
         
-        .methods {
-            margin-top: 40px;
+        .nav-tabs-inner {
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
         }
         
-        .methods h3 {
-            text-align: center;
-            color: #2c4a52;
-            margin-bottom: 25px;
-            font-size: 1.3rem;
+        .tab-btn {
+            padding: 20px 32px;
+            border: none;
+            background: none;
+            color: var(--text-medium);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            transition: all 0.3s ease;
         }
         
-        .method-grid {
+        .tab-btn:hover {
+            color: var(--primary);
+            background: var(--bg-light);
+        }
+        
+        .tab-btn.active {
+            color: var(--primary);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 60px 0;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* About Section */
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
         
+        .about-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .about-card p {
+            color: var(--text-medium);
+            margin-bottom: 16px;
+        }
+        
+        /* Method Cards */
         .method-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+            border-left: 4px solid var(--accent);
         }
         
-        .method-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 178, 204, 0.2);
+        .method-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
         }
         
-        .method-card h4 {
-            color: #2c4a52;
-            margin-bottom: 8px;
-            font-size: 1.1rem;
+        .method-card .subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
         }
         
         .method-card p {
-            color: #6b8a94;
-            font-size: 0.9rem;
+            color: var(--text-medium);
         }
         
-        .method-card .icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+        .method-card ul {
+            margin-top: 16px;
+            padding-left: 20px;
         }
         
-        .services {
-            margin-top: 40px;
+        .method-card li {
+            color: var(--text-medium);
+            margin-bottom: 8px;
         }
         
-        .services h3 {
-            text-align: center;
-            color: #2c4a52;
-            margin-bottom: 25px;
-            font-size: 1.3rem;
-        }
-        
-        .service-list {
+        /* Services Grid */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
         
         .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border-left: 4px solid #66b2cc;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
         }
         
-        .service-card h4 {
-            color: #2c4a52;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
         }
         
         .service-card p {
-            color: #6b8a94;
+            color: var(--text-medium);
             font-size: 0.95rem;
         }
         
-        .openness {
-            background: linear-gradient(135deg, #66b2cc 0%, #4a90a4 100%);
-            color: white;
-            padding: 40px;
+        /* Booking Form */
+        .booking-section {
+            background: var(--bg-card);
             border-radius: 20px;
-            margin-top: 40px;
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .booking-section h2 {
+            color: var(--primary);
             text-align: center;
+            margin-bottom: 12px;
+            font-size: 2rem;
         }
         
-        .openness h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-        
-        .openness p {
-            opacity: 0.95;
-            margin-bottom: 10px;
-        }
-        
-        .openness .roles {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-        
-        .openness .role {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .contact {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 20px;
+        .booking-section .subtitle {
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            margin-top: 40px;
+            color: var(--text-light);
+            margin-bottom: 40px;
         }
         
-        .contact h3 {
-            color: #2c4a52;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+        .form-group {
+            margin-bottom: 24px;
         }
         
-        .contact-email {
-            display: inline-block;
-            background: linear-gradient(135deg, #66b2cc 0%, #4a90a4 100%);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
+        .form-group label {
+            display: block;
+            color: var(--text-dark);
             font-weight: 500;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 8px;
         }
         
-        .contact-email:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 25px rgba(102, 178, 204, 0.4);
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
         }
         
-        footer {
-            text-align: center;
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--bg-card);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(56, 161, 105, 0.3);
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background: var(--bg-card);
             padding: 40px;
-            color: #6b8a94;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .contact-item .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-item h4 {
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        
+        .contact-item p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+        
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.8;
             font-size: 0.9rem;
         }
         
-        @media (max-width: 600px) {
-            header { padding: 40px 25px; }
-            h1 { font-size: 1.8rem; }
-            .intro { padding: 30px 25px; }
-            .contact { padding: 40px 25px; }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-info h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs-inner {
+                justify-content: flex-start;
+            }
+            
+            .booking-section {
+                padding: 32px 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="profile-icon">🧠</div>
-            <h1>Robert Johan Gustav Norberg</h1>
-            <p class="title">KBT · DBT · IPT · ERGT Terapeut</p>
-            <p class="location">📍 Sundsvall, Västernorrland</p>
-            <div class="credentials">
-                <span class="credential">Legitimerad</span>
-                <span class="credential">Region Västernorrland</span>
-                <span class="credential">4+ års erfarenhet</span>
+    <header>
+        <div class="container header-content">
+            <div class="profile-image">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
             </div>
-        </header>
+            <div class="header-info">
+                <h1>Robert Johan Gustav Norberg</h1>
+                <p class="title">Legitimerad Psykoterapeut</p>
+                <p class="location">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    Sundsvall, Västernorrland
+                </p>
+                <div class="credentials">
+                    <span class="credential">KBT</span>
+                    <span class="credential">DBT</span>
+                    <span class="credential">IPT</span>
+                    <span class="credential">ERGT</span>
+                    <span class="credential">Region Västernorrland</span>
+                </div>
+                <a href="https://www.linkedin.com/in/robert-johan-gustav-norberg-90272a17b/" target="_blank" class="linkedin-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                    LinkedIn Profil
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="nav-tabs">
+        <div class="container nav-tabs-inner">
+            <button class="tab-btn active" data-tab="om">Om mig</button>
+            <button class="tab-btn" data-tab="metoder">Behandlingsmetoder</button>
+            <button class="tab-btn" data-tab="tjanster">Tjanster</button>
+            <button class="tab-btn" data-tab="kontakt">Kontakt</button>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <!-- Om mig -->
+        <div id="om" class="tab-content active">
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Min bakgrund</h3>
+                    <p>Jag arbetar som legitimerad psykoterapeut och behandlare inom Region Västernorrland med over fyra ars erfarenhet av psykiatrisk vard.</p>
+                    <p>Min specialistkompetens ligger inom evidensbaserade behandlingsmetoder, och jag har genomgatt extensive utbildning inom flera terapeutiska inriktningar.</p>
+                    <p>Jag tror starkt pa att varje individ ar unik och att behandlingen maste anpassas efter dina specifika behov och mål.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Min filosofi</h3>
+                    <p>Terapi handlar inte bara om att minska symtom - det handlar om att hitta nya satt att leva ett meningsfullt liv.</p>
+                    <p>Jag kombinerar vetenskapligt beprövade metoder med ett varmt och inkännande förhallningssatt. Tillsammans skapar vi en trygg grund dar du kan utforska dina tankar, känslor och beteenden.</p>
+                    <p>Min roll ar att stötta dig i din process, inte att döma eller ge enkla svar. Du ar experten på ditt eget liv.</p>
+                </div>
+            </div>
+        </div>
         
-        <section class="intro">
-            <h2>Välkommen</h2>
-            <p>Jag erbjuder evidensbaserad psykoterapeutisk behandling med fokus på din individuella resa mot psykiskt välbefinnande. Tillsammans hittar vi vägen framåt.</p>
+        <!-- Metoder -->
+        <div id="metoder" class="tab-content">
+            <div class="method-card">
+                <h3>KBT - Kognitiv BetendeTerapi</h3>
+                <p class="subtitle">Kognitiv BeteendeTerapi</p>
+                <p>KBT ar en av de mest studerade och effektiva terapiformerna for olika psykiska besvar. Metoden fokuserar pa sambandet mellan tankar, känslor och beteenden.</p>
+                <ul>
+                    <li>Identifiera och utmana negativa tankemönster</li>
+                    <li>Utveckla nya, mer hjälpsamma satt att tänka</li>
+                    <li>Gradvis exponering for rädslor och ångest</li>
+                    <li>Praktiska verktyg för vardagen</li>
+                    <li>Strukturerad och tidsbegränsad behandling</li>
+                </ul>
+            </div>
             
-            <div class="methods">
-                <h3>Mina behandlingsmetoder</h3>
-                <div class="method-grid">
-                    <div class="method-card">
-                        <div class="icon">🔄</div>
-                        <h4>KBT</h4>
-                        <p>Kognitiv BeteendeTerapi</p>
-                    </div>
-                    <div class="method-card">
-                        <div class="icon">💡</div>
-                        <h4>DBT</h4>
-                        <p>Dialektisk BeteendeTerapi</p>
-                    </div>
-                    <div class="method-card">
-                        <div class="icon">🔗</div>
-                        <h4>IPT</h4>
-                        <p>Interpersonell Terapi</p>
-                    </div>
-                    <div class="method-card">
-                        <div class="icon">🛡️</div>
-                        <h4>ERT</h4>
-                        <p>Emotionsfokuserad Terapi</p>
-                    </div>
+            <div class="method-card">
+                <h3>DBT - Dialektisk BetendeTerapi</h3>
+                <p class="subtitle">Dialektisk BeteendeTerapi</p>
+                <p>DBT är en modifierad form av KBT som utvecklats specifikt för att behandla borderline personlighetsstörning och intensiv emotionell dysreglering.</p>
+                <ul>
+                    <li>Färdighetsträning i grupp och individuellt</li>
+                    <li>Stressbaserad telefoncoaching</li>
+                    <li>Fokus på emotionell reglering</li>
+                    <li>Distresstolerans och interpersonell effektivitet</li>
+                    <li>Särskilt effektiv vid självskadebeteende</li>
+                </ul>
+            </div>
+            
+            <div class="method-card">
+                <h3>IPT - Interpersonell Terapi</h3>
+                <p class="subtitle">Interpersonell Terapi</p>
+                <p>IPT fokuserar på hur relationer och kommunikation påverkar vårt psykiska mående. Metoden är särskilt effektiv för depression och relaterade tillstånd.</p>
+                <ul>
+                    <li>Fokus på aktuella relationella problem</li>
+                    <li>Identifiera och förändra ohjälpsamma kommunikationsmönster</li>
+                    <li>Arbeta med sorg och rollövergångar</li>
+                    <li>Strukturerad och tidsbegränsad behandling</li>
+                </ul>
+            </div>
+            
+            <div class="method-card">
+                <h3>ERGT - Emotionsfokuserad Terapi</h3>
+                <p class="subtitle">Emotionsregleringsterapi</p>
+                <p>ERGT hjälper dig att förstå, uttrycka och reglera dina känslor på ett hälsosamt sätt. Känslor ses som en viktig resurs snarare än ett problem.</p>
+                <ul>
+                    <li>Utforska och validera känslor</li>
+                    <li>Arbeta med grundläggande emotionella behov</li>
+                    <li>Transformation av negativa känslotillstånd</li>
+                    <li>Skapande av nya emotionella erfarenheter</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Tjänster -->
+        <div id="tjanster" class="tab-content">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Individuell Terapi</h3>
+                    <p>Personanpassad behandling anpassad efter dina specifika behov. Vi arbetar tillsammans för att identifiera mål och utveckla strategier för förändring. Behandlingen kan omfatta en eller flera av mina terapimetoder beroende på vad som passar dig bäst.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Psykiatrisk Utredning</h3>
+                    <p>Strukturerad utredning och diagnostik av psykiatriska tillstånd. Jag använder evidensbaserade instrument och metoder för att ge dig en tydlig bild av dina svårigheter och föreslå lämplig behandling.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Grupphbehandling</h3>
+                    <p>Strukturerade gruppprogram, särskilt inom DBT och KBT. Gruppbehandling kan vara särskilt värdefullt då det ger möjlighet att lära av andra i liknande situationer och öva på färdigheter i en trygg miljö.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>ATK - Anteckningar och Rådgivning</h3>
+                    <p>Telefon- och videobaserad rådgivning för dig som redan är i behandling. Jag erbjuder även konsultation till närstående och andra vårdgivare som vill förstå mer om psykiatrisk problematik.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Föreläsningar och Utbildning</h3>
+                    <p>Jag håller föreläsningar och utbildningar för organisationer och team inom psykiatrisk vård, arbetsmiljö och stresshantering. Skräddarsydda utbildningspaket för din verksamhets behov.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Återhämtning och Stöd</h3>
+                    <p>Långsiktigt stöd för återhämtning och psykisk wellness. Jag hjälper dig att bygga upp strategier och resurser för att hantera vardagen och förebygga återfall.</p>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <section class="services">
-            <h3>Tjänster</h3>
-            <div class="service-list">
-                <div class="service-card">
-                    <h4>🩺 Psykiatrisk Utredning</h4>
-                    <p>Utredning och diagnostik med evidensbaserade metoder för att förstå dina utmaningar.</p>
+        <!-- Kontakt / Booking -->
+        <div id="kontakt" class="tab-content">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Kontakta mig</h3>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>E-post</h4>
+                            <p><a href="mailto:robert-no@hotmail.com">robert-no@hotmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Plats</h4>
+                            <p>Sundsvall, Västernorrland</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/robert-johan-gustav-norberg-90272a17b/" target="_blank">Visa profil</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h4>💬 Individuell Terapi</h4>
-                    <p>Personanpassad terapi med KBT, DBT, IPT eller ERGT baserat på dina behov.</p>
-                </div>
-                <div class="service-card">
-                    <h4>📚 Gruppbehandling</h4>
-                    <p>Strukturerade gruppprogram, särskilt inom DBT och KBT.</p>
-                </div>
-                <div class="service-card">
-                    <h4>🌱 Återhämtning & Stöd</h4>
-                    <p>Långsiktigt stöd för återhämtning och psykisk wellness i vardagen.</p>
+                
+                <div class="booking-section">
+                    <h2>Beställ en konsultation</h2>
+                    <p class="subtitle">Fyll i formularet så kontaktar jag dig inom 24 timmar</p>
+                    
+                    <form id="booking-form" action="mailto:robert-no@hotmail.com?subject=Bokningsforeskraring" method="POST" enctype="text/plain">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Namn</label>
+                                <input type="text" id="name" name="name" required placeholder="Ditt fullständiga namn">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-post</label>
+                                <input type="email" id="email" name="email" required placeholder="din.email@exempel.se">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="070-123 45 67">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Tjänst</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Välj tjänst</option>
+                                    <option value="individuell">Individuell terapi</option>
+                                    <option value="utredning">Psykiatrisk utredning</option>
+                                    <option value="grupp">Grupphbehandling</option>
+                                    <option value="forelasning">Föreläsning/Utbildning</option>
+                                    <option value="konsultation">Allmän konsultation</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Meddelande</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Beskriv kort ditt ärende eller dina frågor..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Skicka bokningsforeskraring</button>
+                    </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Robert Johan Gustav Norberg - Legitimerad Psykoterapeut | <a href="https://www.linkedin.com/in/robert-johan-gustav-norberg-90272a17b/" target="_blank">LinkedIn</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
         
-        <section class="openness">
-            <h3>🎯 Öppen för nya möjligheter</h3>
-            <p>Utöver kliniskt arbete är jag öppen för:</p>
-            <div class="roles">
-                <span class="role">📋 Arbetsledning</span>
-                <span class="role">🎤 Föreläsningar</span>
-                <span class="role">📖 Utbildning</span>
-            </div>
-        </section>
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
+                
+                // Remove active from all
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
         
-        <section class="contact">
-            <h3>Redo att ta första steget?</h3>
-            <p style="color: #6b8a94; margin-bottom: 25px;">Kontakta mig för en kostnadsfri konsultation om hur jag kan hjälpa dig.</p>
-            <a href="mailto:robert-no@hotmail.com" class="contact-email">📧 robert-no@hotmail.com</a>
-        </section>
-        
-        <footer>
-            <p>Robert Johan Gustav Norberg © 2026 | Sundsvall, Sverige</p>
-        </footer>
-    </div>
+        // Form submission - opens email client
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            // Allow default mailto action
+            // Could also add AJAX submission here
+        });
+    </script>
 </body>
 </html>
